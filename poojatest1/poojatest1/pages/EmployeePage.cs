@@ -7,23 +7,23 @@ using OpenQA.Selenium;
 
 namespace poojatest1.pages
 {
-    public class EmployeePage
-    
-        {
-            public void CreateEmployee(IWebDriver driver)
-            {
+	public class EmployeePage
+	
+		{
+			public void CreateEmployee(IWebDriver driver)
+			{
 
-            }
+			}
 
-            public void EditEmployee(IWebDriver driver)
-            {
+			public void EditEmployee(IWebDriver driver)
+			{
 
-            }
+			}
 
-            public void DeleteEmployee(IWebDriver driver)
-            {
+			public void DeleteEmployee(IWebDriver driver)
+			{
 
-            }
-        }
-    }
+			}
+		}
+	}
 

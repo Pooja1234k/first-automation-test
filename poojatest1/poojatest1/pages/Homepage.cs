@@ -7,7 +7,7 @@ namespace poojatest1.pages
     public class Homepage
     {
 
-        public void GotoEmployeepage(IWebDriver driver)
+        public void GotoTMpage(IWebDriver driver)
         {
             // click on administration tab
 
@@ -24,12 +24,8 @@ namespace poojatest1.pages
 
         }
 
-        internal void GotoTMPage()
-        {
-            throw new NotImplementedException();
-        }
 
-        public void gotoEmployeePage(IWebDriver driver)
+        public void GotoEmployeePage(IWebDriver driver)
         {
 
 

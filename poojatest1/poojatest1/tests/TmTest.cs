@@ -7,45 +7,45 @@ using poojatest1.utilities;
 
 namespace poojatest1.tests
 {
-    [TestFixture]
+	[TestFixture]
 
-    [Parallelizable]
+	[Parallelizable]
 
-    public class TmTest : CommonDriver
-    {
+	public class TmTest : CommonDriver
+	{
 
-        Homepage HomePageObj = new Homepage();
-        TMpage TMpageObj = new TMpage();
+		Homepage HomePageObj = new Homepage();
+		TMpage TMpageObj = new TMpage();
 
-        [Test,Order(1),Description("check if user is able to create material record successfully")]
+		[Test,Order(1),Description("check if user is able to create material record successfully")]
 
-        public void CreateTMTest()
-        {
-            
-            HomePageObj.GotoEmployeepage(driver);
-            TMpageObj.CreateEmployee(driver);
+		public void CreateTMTest()
+		{
+			
+			HomePageObj.GotoTMpage(driver);
+            TMpageObj.CreateTM(driver);
 
-        }
+		}
 
-        [Test,Order(2),Description("check if user is able to edit material record successfully.")]
-        public void EditTMTest()
-        {
-           
-            HomePageObj.GotoEmployeepage(driver);
-            TMpageObj.EditTM(driver);
-        }
+		[Test,Order(2),Description("check if user is able to edit material record successfully.")]
+		public void EditTMTest()
+		{
+		   
+			HomePageObj.GotoTMpage(driver);
+			TMpageObj.EditTM(driver,"sss","sfsf","xfdf");
+		}
 
-        [Test,Order(3),Description("check if user is able to delete material record.")]
+		[Test,Order(3),Description("check if user is able to delete material record.")]
 
 
-        public void DeleteTMTest()
-        {
-            
-            HomePageObj.GotoEmployeepage(driver);
-            TMpageObj.DeleteTM(driver);
-        }
+		public void DeleteTMTest()
+		{
+			
+			HomePageObj.GotoTMpage(driver);
+			TMpageObj.DeleteTM(driver,"zfsd","zczx","zczxc");
+		}
 
-        
+		
 
-    }
+	}
 }

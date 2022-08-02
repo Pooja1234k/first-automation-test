@@ -8,7 +8,7 @@ namespace poojatest1.pages
 {
     public class TMpage
     {
-        public void CreateEmployee(IWebDriver driver)
+        public void CreateTM(IWebDriver driver)
         {
             // click on create new
 
@@ -47,24 +47,30 @@ namespace poojatest1.pages
             Thread.Sleep(2000);
             IWebElement gotothelastPageButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
             gotothelastPageButton.Click();
+            Thread.Sleep(2000);
+        }
 
-
-            // Check if the new material is created successfully
-
+        public string GetCode(IWebDriver driver)
+        {
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-            if (newCode.Text == "poojatest1")
-            {
-                Console.WriteLine(" new material is created successfully");
-            }
-            else
-            {
-                Console.WriteLine(" new material is failed");
-            }
+            return newCode.Text;
+        }
 
+        public string GetDescription(IWebDriver driver)
+        {
+            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+            return newDescription.Text;
+        }
+
+        public string GetPrice(IWebDriver driver)
+        {
+            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+            return newPrice.Text;
         }
 
 
-        public void EditTM(IWebDriver driver)
+
+        public void EditTM(IWebDriver driver,string code,string description,string price)
         {
             // Click on edit button
 
@@ -72,24 +78,20 @@ namespace poojatest1.pages
             IWebElement gotoLastPageButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
             gotoLastPageButton.Click();
 
-            
-            IWebElement findCodeRecordCreated = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-           
-            if (findCodeRecordCreated.Text == "poojatest1")
-            {
-               IWebElement editButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
-                Thread.Sleep(1000);
-                editButton.Click();
+            IWebElement editButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
+            Thread.Sleep(1000);
+            editButton.Click();
+            Thread.Sleep(2000);
 
             // edit the code textbox
             IWebElement newcodeTextbox = driver.FindElement(By.Id("Code"));
             newcodeTextbox.Clear();
-            newcodeTextbox.SendKeys("poojatest2");
+            newcodeTextbox.SendKeys(code);
 
             // edit the description textbox
             IWebElement newdesciptionTextbox = driver.FindElement(By.Id("Description"));
             newdesciptionTextbox.Clear();
-            newdesciptionTextbox.SendKeys("poojatest2");
+            newdesciptionTextbox.SendKeys(description);
 
 
             // price tag interactable
@@ -99,39 +101,43 @@ namespace poojatest1.pages
             newpriceTag.Click();
             newPriceTextbox.Clear();
             newpriceTag.Click();
-            newPriceTextbox.SendKeys("$15.00");
+            newPriceTextbox.SendKeys(price);
 
 
             // click on save button
             IWebElement newsaveButton = driver.FindElement(By.Id("SaveButton"));
             newsaveButton.Click();
-            Thread.Sleep(1500);
-
-            }
-            else
-            {
-                Assert.Fail("Record to be edited hasn't been found. Record not edited");
-            }
-
+            Thread.Sleep(3000);
 
             // check if the material record is edited successfully
 
-            IWebElement gotothelastPageButton= driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
+
+
+            IWebElement gotothelastPageButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
             gotothelastPageButton.Click();
             Thread.Sleep(3000);
-
-            IWebElement editedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-            IWebElement editedTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
-            IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
-            IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
-
-            Assert.That(editedCode.Text == "poojatest2", "Actual code and expected code does not match");
-            Assert.That(editedTypeCode.Text == "M", "Actual type code  and expected type code does not match");
-            Assert.That(editedDescription.Text == "poojatest2", "Actual description and expected description does not match");
-            Assert.That(editedPrice.Text == "$15.00", "Actual price and expected price does not match");
-
         }
-        public void DeleteTM(IWebDriver driver)
+
+        public String editedCode(IWebDriver driver)
+        {
+            IWebElement editedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            return editedCode.Text;
+        }
+            public String editedDescription(IWebDriver driver)
+        {
+            IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+            return editedDescription.Text;
+       
+        }
+
+        public String editedPrice(IWebDriver driver)
+        {
+            IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+            return editedPrice.Text;
+        }
+
+
+        public void DeleteTM(IWebDriver driver, string code, string description, string price)
         {
             // -- Delete the record --//
 
@@ -157,16 +163,32 @@ namespace poojatest1.pages
             IWebElement gotothelastPageButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
             gotothelastPageButton.Click();
             Thread.Sleep(3000);
+        }
 
-            IWebElement deletedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-            //IWebElement deletedTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
-            IWebElement deletedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
-            IWebElement deletedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+            public string deletedCode(IWebDriver driver)
+            {
+                IWebElement deletedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+                return deletedCode.Text;
 
-            Assert.That(deletedCode.Text != "poojatest2", "code record has not beeen deleted");
-           // Assert.That(deletedTypeCode.Text != "M", "Typecode has not been deleted");
-            Assert.That(deletedDescription.Text != "poojatest2", "desciption has not been deleted");
-            Assert.That(deletedPrice.Text != "$15.00", "price has not been deleted");
+
+            }
+
+            public string deletedDescription(IWebDriver driver)
+            {
+                IWebElement deletedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+                return deletedDescription.Text;
+
+
+            }
+
+            public string deletedPrice(IWebDriver driver)
+
+            {
+                IWebElement deletedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+                return deletedPrice.Text;
+
+            }
+
 
         }
 
@@ -174,4 +196,3 @@ namespace poojatest1.pages
     }
 
 
-}

@@ -22,7 +22,7 @@ namespace poojatest1.tests
         {
 
             
-            HomePageObj.GotoEmployeepage(driver);
+            HomePageObj.GotoEmployeePage(driver);
             EmployeepageObj.CreateEmployee(driver);
         }
 
