@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MarsQAProject": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
