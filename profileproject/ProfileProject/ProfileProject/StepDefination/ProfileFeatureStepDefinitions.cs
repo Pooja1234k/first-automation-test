@@ -1,189 +1,243 @@
-using System;
+
+using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
+using ProfileProject.pages;
+using ProfileProject.Pages;
+using ProfileProject.Utilities;
 using TechTalk.SpecFlow;
 
-namespace ProfileProject.Specflow.StepDefination
+namespace ProfileProject.StepDefination
 {
     [Binding]
-    public class ProfileFeatureStepDefinitions
+    public class ProfileFeatureStepDefinitions : CommonDriver
     {
+        SignInNProfilePage SignInNProfilepageObj = new SignInNProfilePage();
+        LanguagePage LanguagePageObj = new LanguagePage();
+        SkillPage SkillPageObj = new SkillPage();
+        EducationPage EducationPageObj = new EducationPage();
+
         [Given(@"I logged into user account with valid username and password")]
         public void GivenILoggedIntoUserAccountWithValidUsernameAndPassword()
         {
-            throw new PendingStepException();
+            driver = new ChromeDriver();
+            SignInNProfilepageObj.SignInActions(driver);
+
         }
 
         [When(@"I navigate to profile page")]
         public void WhenINavigateToProfilePage()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [Given(@"I logged into website successsfully")]
         public void GivenILoggedIntoWebsiteSuccesssfully()
         {
-            throw new PendingStepException();
+            driver = new ChromeDriver();
+            SignInNProfilepageObj.SignInActions(driver);
         }
 
         [When(@"I navigate to  languages tab in profile page")]
         public void WhenINavigateToLanguagesTabInProfilePage()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
-        [When(@"I add new languages details")]
-        public void WhenIAddNewLanguagesDetails()
+        [When(@"I add new '([^']*)','([^']*)'languages details")]
+        public void WhenIAddNewLanguagesDetails(string p0, string p1)
         {
-            throw new PendingStepException();
+            LanguagePageObj.AddNewLanguages(driver, p0, p1);
         }
 
-        [Then(@"the languages details should be created successfully")]
-        public void ThenTheLanguagesDetailsShouldBeCreatedSuccessfully()
+        [Then(@"the languages details '([^']*)','([^']*)'should be created successfully")]
+        public void ThenTheLanguagesDetailsShouldBeCreatedSuccessfully(string p0, string p1)
         {
-            throw new PendingStepException();
+            String newLanguage = LanguagePageObj.GetLanguage(driver);
+            String newLanguageLevel = LanguagePageObj.GetLanguageLevel(driver);
+
+
+            Assert.That(newLanguage.Contains(p0), "Actual Language and Expected Language do not match");
+            Assert.That(newLanguageLevel.Contains(p1), "Actual skill and Expected skill do not match");
+
         }
 
-        [When(@"I navigate to edit button in languages tab")]
-        public void WhenINavigateToEditButtonInLanguagesTab()
+        [When(@"I navigate to  languages tab")]
+        public void WhenINavigateToLanguagesTab()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
         }
+
 
         [When(@"I update existing '([^']*)','([^']*)' languages details")]
-        public void WhenIUpdateExistingLanguagesDetails(string english, string fluent)
+        public void WhenIUpdateExistingLanguagesDetails(string p0, string p1)
         {
-            throw new PendingStepException();
+            LanguagePageObj.UpdateLanguages(driver, p0, p1);
+
+
         }
 
         [Then(@"the existing languages details'([^']*)','([^']*)' should be updated successfully")]
-        public void ThenTheExistingLanguagesDetailsShouldBeUpdatedSuccessfully(string english, string fluent)
+        public void ThenTheExistingLanguagesDetailsShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            throw new PendingStepException();
+            string editedLanguage = LanguagePageObj.editedLanguage(driver);
+            string editedLanguageLevel = LanguagePageObj.editedLanguageLevel(driver);
+
+
+            Assert.That(editedLanguage == p0, "Actual language and expected language do not match");
+            Assert.That(editedLanguageLevel == p1, "Actual language level and expected language level do not match");
+
+
         }
 
         [When(@"I navigate to delete button in languages tab")]
         public void WhenINavigateToDeleteButtonInLanguagesTab()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
+
         }
 
         [When(@"I deleted existing language details")]
         public void WhenIDeletedExistingLanguageDetails()
         {
-            throw new PendingStepException();
+            LanguagePageObj.DeleteLanguages(driver);
+
         }
 
         [Then(@"the language details should be deleted successfully")]
         public void ThenTheLanguageDetailsShouldBeDeletedSuccessfully()
         {
-            throw new PendingStepException();
+            string deletedLanguage = LanguagePageObj.deletedLanguage(driver);
+
+            Assert.That(deletedLanguage != "English", "Actual language and expected language do not match");
+
         }
 
         [When(@"I navigate to skills tab in profile page")]
         public void WhenINavigateToSkillsTabInProfilePage()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
-        [When(@"I add new skills details")]
-        public void WhenIAddNewSkillsDetails()
+        [When(@"I add new '([^']*)','([^']*)'skills details")]
+        public void WhenIAddNewSkillsDetails(string p0, string p1)
         {
-            throw new PendingStepException();
+
+            SkillPageObj.AddNewSkills(driver, p0, p1);
         }
 
-        [Then(@"the skills details should be created successfully")]
-        public void ThenTheSkillsDetailsShouldBeCreatedSuccessfully()
+        [Then(@"the skills details '([^']*)','([^']*)'should be created successfully")]
+        public void ThenTheSkillsDetailsShouldBeCreatedSuccessfully(string p0, string p1)
         {
-            throw new PendingStepException();
-        }
+            String newSkill = SkillPageObj.GetSkill(driver);
+            String newSkillLevel = SkillPageObj.GetSkillLevel(driver);
 
+
+            Assert.That(newSkill.Contains(p0), "Actual Skill and Expected Skill do not match");
+            Assert.That(newSkillLevel.Contains(p1), "Actual skill level and Expected skill level do not match");
+
+        }
         [When(@"I navigate to edit button in skills tab")]
         public void WhenINavigateToEditButtonInSkillsTab()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [When(@"I update existing '([^']*)','([^']*)' skills details")]
-        public void WhenIUpdateExistingSkillsDetails(string p0, string basic)
+        public void WhenIUpdateExistingSkillsDetails(string p0, string p1)
         {
-            throw new PendingStepException();
+            SkillPageObj.UpdateSkills(driver, p0, p1);
         }
 
         [Then(@"the existing skills details '([^']*)','([^']*)' should be updated successfully")]
-        public void ThenTheExistingSkillsDetailsShouldBeUpdatedSuccessfully(string p0, string basic)
+        public void ThenTheExistingSkillsDetailsShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            throw new PendingStepException();
+            string editedSkill = SkillPageObj.editedSkill(driver);
+            string editedSkillLevel = SkillPageObj.editedSkillLevel(driver);
+
+
+            Assert.That(editedSkill == p0, "Actual Skill and expected Skill do not match");
+            Assert.That(editedSkillLevel == p1, "Actual Skill level and expected Skill level do not match");
         }
 
         [When(@"I navigate to delete button")]
         public void WhenINavigateToDeleteButton()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [When(@"I deleted existing skills details")]
         public void WhenIDeletedExistingSkillsDetails()
         {
-            throw new PendingStepException();
+            SkillPageObj.DeleteSkills(driver);
         }
 
         [Then(@"the skills details should be deleted successfully")]
         public void ThenTheSkillsDetailsShouldBeDeletedSuccessfully()
         {
-            throw new PendingStepException();
-        }
+            string deletedSkills = SkillPageObj.deletedSkill(driver);
+
+            Assert.That(deletedSkills != "Technical", "Actual skill is  not deleted ");
+        }        
 
         [When(@"I navigate to education tab in profile page")]
         public void WhenINavigateToEducationTabInProfilePage()
         {
-            throw new PendingStepException();
+            SignInNProfilepageObj.NavigateProfilePage(driver);
+
         }
 
-        [When(@"I add new Education details")]
-        public void WhenIAddNewEducationDetails()
+        [When(@"I add new'([^']*)','([^']*)','([^']*)','([^']*)' and '([^']*)' details")]
+        public void WhenIAddNewAndDetails(string aUT, string p1, string p2, string iT, string year)
         {
-            throw new PendingStepException();
+            
         }
 
-        [Then(@"the Education details should be created successfully")]
-        public void ThenTheEducationDetailsShouldBeCreatedSuccessfully()
+        [Then(@"the Education details '([^']*)','([^']*)','([^']*)','([^']*)' and '([^']*)' should be created successfully")]
+        public void ThenTheEducationDetailsAndShouldBeCreatedSuccessfully(string aUT, string p1, string p2, string iT, string year)
         {
-            throw new PendingStepException();
+            
         }
+
+
 
         [When(@"I navigate to edit button in education tab")]
         public void WhenINavigateToEditButtonInEducationTab()
         {
-            throw new PendingStepException();
+           
         }
 
         [When(@"I update existing '([^']*)','([^']*)' education details")]
         public void WhenIUpdateExistingEducationDetails(string aUT, string dilpomaIT)
         {
-            throw new PendingStepException();
+            
         }
 
         [Then(@"the '([^']*)','([^']*)' education details should be updated successfully")]
         public void ThenTheEducationDetailsShouldBeUpdatedSuccessfully(string aUT, string dilpomaIT)
         {
-            throw new PendingStepException();
+            
         }
 
         [When(@"I navigate to delete button in Education tab")]
         public void WhenINavigateToDeleteButtonInEducationTab()
         {
-            throw new PendingStepException();
+            
         }
 
         [When(@"I deleted existing education details")]
         public void WhenIDeletedExistingEducationDetails()
         {
-            throw new PendingStepException();
+            
         }
 
         [Then(@"the education details should be deleted successfully")]
         public void ThenTheEducationDetailsShouldBeDeletedSuccessfully()
         {
-            throw new PendingStepException();
+            
         }
+
+
+
     }
+
 }
