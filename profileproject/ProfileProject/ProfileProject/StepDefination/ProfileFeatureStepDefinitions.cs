@@ -185,55 +185,81 @@ namespace ProfileProject.StepDefination
             SignInNProfilepageObj.NavigateProfilePage(driver);
 
         }
-
-        [When(@"I add new'([^']*)','([^']*)','([^']*)','([^']*)' and '([^']*)' details")]
-        public void WhenIAddNewAndDetails(string aUT, string p1, string p2, string iT, string year)
+        [When(@"I add new  education details")]
+        public void WhenIAddNewEducationDetails()
         {
-            
+            EducationPageObj.AddEducation(driver);
         }
 
-        [Then(@"the Education details '([^']*)','([^']*)','([^']*)','([^']*)' and '([^']*)' should be created successfully")]
-        public void ThenTheEducationDetailsAndShouldBeCreatedSuccessfully(string aUT, string p1, string p2, string iT, string year)
+        [Then(@"The Education details should be created successfully")]
+        public void ThenTheEducationDetailsShouldBeCreatedSuccessfully()
         {
-            
-        }
+            String newCollege = EducationPageObj.GetCollege(driver);
+            String newCountry = EducationPageObj.GetCountry(driver);
+            String newTitle = EducationPageObj.GetTitle(driver);
+            String newDegree = EducationPageObj.GetDegree(driver);
+            String newYear = EducationPageObj.GetYear(driver);
 
+
+
+
+            Assert.That(newCollege == "Messey", "Actual college and expected college does not match");
+            Assert.That(newCountry == "New Zealand", "Actual country and expected country does not match");
+            Assert.That(newTitle == "B.Tech", "Actual title and expected title does not match");
+            Assert.That(newDegree == "IT", "Actual degree and expected degree does not match");
+            Assert.That(newYear == "2012", "Actual year and year price does not match");
+
+            driver.Quit();
+
+        }
 
 
         [When(@"I navigate to edit button in education tab")]
         public void WhenINavigateToEditButtonInEducationTab()
         {
-           
+            SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [When(@"I update existing '([^']*)','([^']*)' education details")]
-        public void WhenIUpdateExistingEducationDetails(string aUT, string dilpomaIT)
+        public void WhenIUpdateExistingEducationDetails(string p0, string p1)
         {
-            
+            EducationPageObj.UpdateEducation(driver,p0,p1);
+
         }
 
         [Then(@"the '([^']*)','([^']*)' education details should be updated successfully")]
-        public void ThenTheEducationDetailsShouldBeUpdatedSuccessfully(string aUT, string dilpomaIT)
+        public void ThenTheEducationDetailsShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            
+            string editedCollege = EducationPageObj.editedCollege(driver);
+            string editedDegree = EducationPageObj.editedDegree(driver);
+
+
+            Assert.That(editedCollege == p0, "Actual College and expected College do not match");
+            Assert.That(editedDegree == p1, "Actual Degree and expected Degree do not match");
+
+
         }
 
         [When(@"I navigate to delete button in Education tab")]
         public void WhenINavigateToDeleteButtonInEducationTab()
         {
-            
+            SignInNProfilepageObj.NavigateProfilePage(driver);
+
         }
 
         [When(@"I deleted existing education details")]
         public void WhenIDeletedExistingEducationDetails()
         {
-            
+            EducationPageObj.DeleteEducation(driver);
         }
 
         [Then(@"the education details should be deleted successfully")]
         public void ThenTheEducationDetailsShouldBeDeletedSuccessfully()
         {
-            
+            string deletedEducation = EducationPageObj.deletedEducation(driver);
+
+            Assert.That(deletedEducation != "AUT", "Actual college is  not deleted ");
+
         }
 
 

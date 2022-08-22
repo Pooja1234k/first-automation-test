@@ -7,7 +7,7 @@ namespace ProfileProject.pages
     {
 
 
-        public void AddNewLanguages(IWebDriver driver, String Language, String Level)
+        public void AddNewLanguages(IWebDriver driver, String Hindi, String Fluent)
         {
             Thread.Sleep(3000);
             IWebElement LanguagesOption = driver.FindElement(By.LinkText("Languages"));
@@ -24,7 +24,7 @@ namespace ProfileProject.pages
             // Enter new valid languages
 
             IWebElement AddLanguageTextbox = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"));
-            AddLanguageTextbox.SendKeys("Hindi");
+            AddLanguageTextbox.SendKeys(Hindi);
             Thread.Sleep(3000);
 
 
@@ -33,7 +33,7 @@ namespace ProfileProject.pages
 
             IWebElement LanguageLevelOption = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/select[1]"));
             SelectElement lDropdown = new SelectElement(LanguageLevelOption);
-            lDropdown.SelectByText("Fluent");
+            lDropdown.SelectByText(Fluent);
             Thread.Sleep(3000);
 
 

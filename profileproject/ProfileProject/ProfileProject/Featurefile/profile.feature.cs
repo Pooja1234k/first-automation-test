@@ -336,16 +336,10 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("8.create education record with valid details")]
-        [NUnit.Framework.TestCaseAttribute("AUT", "India", "B.Tech", "IT", "2012", null)]
-        public void _8_CreateEducationRecordWithValidDetails(string college, string country, string title, string degree, string year, string[] exampleTags)
+        public void _8_CreateEducationRecordWithValidDetails()
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("College", college);
-            argumentsOfScenario.Add("Country", country);
-            argumentsOfScenario.Add("Title", title);
-            argumentsOfScenario.Add("Degree", degree);
-            argumentsOfScenario.Add("Year", year);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8.create education record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 68
  this.ScenarioInitialize(scenarioInfo);
@@ -364,11 +358,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I navigate to education tab in profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 71
- testRunner.And(string.Format("I add new\'{0}\',\'{1}\',\'{2}\',\'{3}\' and \'<year>\' details", college, country, title, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I add new  education details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 72
- testRunner.Then(string.Format("the Education details \'{0}\',\'{1}\',\'{2}\',\'{3}\' and \'<year>\' should be created succ" +
-                            "essfully", college, country, title, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The Education details should be created successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -384,7 +377,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("College", college);
             argumentsOfScenario.Add("Degree", degree);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("9.Edit existing Education record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 78
+#line 76
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -394,16 +387,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 79
+#line 77
  testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 80
+#line 78
  testRunner.When("I navigate to edit button in education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 81
+#line 79
  testRunner.And(string.Format("I update existing \'{0}\',\'{1}\' education details", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 82
+#line 80
  testRunner.Then(string.Format("the \'{0}\',\'{1}\' education details should be updated successfully", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -417,7 +410,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10.Delete existing Education record", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 88
+#line 86
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -427,16 +420,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 89
+#line 87
  testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 90
+#line 88
  testRunner.When("I navigate to delete button in Education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 91
+#line 89
  testRunner.And("I deleted existing education details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 92
+#line 90
  testRunner.Then("the education details should be deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

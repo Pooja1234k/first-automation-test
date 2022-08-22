@@ -5,12 +5,12 @@ using OpenQA.Selenium.Support.UI;
 
 namespace ProfileProject.Pages
 {
-    internal class SkillPage
+    public class SkillPage
     {
-        public void AddNewSkills(IWebDriver driver,String Skill,String Level)
+        public void AddNewSkills(IWebDriver driver,String Communication, String Expert)
         {
             //Go to skill tab
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             IWebElement Skilloption = driver.FindElement(By.LinkText("Skills"));
             Skilloption.Click();
            
@@ -18,17 +18,17 @@ namespace ProfileProject.Pages
             // click on add new Skill button
             IWebElement AddSkilloption = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[3]/div[1]"));
             AddSkilloption.Click();
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
 
             // Add new skill details
             IWebElement SkillTextbox = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"));
-            SkillTextbox.SendKeys("Communication");
+            SkillTextbox.SendKeys(Communication);
             Thread.Sleep(4000);
 
             // Add skill level
             IWebElement SkillLevelTextbox = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/select[1]"));
             SelectElement SkillDropdown = new SelectElement(SkillLevelTextbox);
-            SkillDropdown.SelectByText("Expert");
+            SkillDropdown.SelectByText(Expert);
             Thread.Sleep(3000);
 
             //click on add button

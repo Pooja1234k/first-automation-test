@@ -65,14 +65,12 @@ Scenario Outline: 5.Create new skills record with valid details
 	Then the skills details should be deleted successfully
 
 
-	Scenario Outline: 8.create education record with valid details
+	Scenario: 8.create education record with valid details
 	Given I logged into website successsfully
 	When I navigate to education tab in profile page
-	And  I add new'<College>','<Country>','<Title>','<Degree>' and '<year>' details
-	Then the Education details '<College>','<Country>','<Title>','<Degree>' and '<year>' should be created successfully
-	Examples: 
-	| College | Country | Title  | Degree | Year |
-	| AUT     | India   | B.Tech | IT     | 2012 |
+	And  I add new  education details
+	Then The Education details should be created successfully
+	
 	
 
 Scenario Outline: 9.Edit existing Education record with valid details
