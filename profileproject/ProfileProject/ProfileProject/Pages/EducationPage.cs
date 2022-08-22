@@ -88,9 +88,15 @@ namespace ProfileProject.Pages
 
         public void UpdateEducation(IWebDriver driver, string AUT, string DiplomaIT)
         {
+
+            Thread.Sleep(4000);
+            IWebElement SkillOption = driver.FindElement(By.LinkText("Education"));
+            SkillOption.Click();
+            Thread.Sleep(4000);
+
             IWebElement editButton = driver.FindElement(By.XPath("//tbody/tr[1]/td[6]/span[1]/i[1]"));
             editButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             // edit the  College textbox
             IWebElement newCollegeTextbox = driver.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[1]/div[1]/input[1]"));
@@ -105,20 +111,22 @@ namespace ProfileProject.Pages
             //Click on update button
             IWebElement UpdateButton = driver.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[3]/input[1]"));
             UpdateButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
         }
         public String editedCollege(IWebDriver driver)
         {
-            IWebElement editedCollege = driver.FindElement(By.XPath("//tbody/tr/td[1]"));
-            return editedCollege.Text;
+            IWebElement newCollege = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
+            return newCollege.GetAttribute("outerText").ToString();
+
 
         }
 
         public String editedDegree(IWebDriver driver)
         {
-            IWebElement editedDegree = driver.FindElement(By.XPath("//tbody/tr/td[2]"));
-            return editedDegree.Text;
+            IWebElement newDegree = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
+            return newDegree.GetAttribute("outerText").ToString();
+
         }
 
         public void DeleteEducation(IWebDriver driver)
@@ -138,6 +146,48 @@ namespace ProfileProject.Pages
             return deletedEducation.Text;
 
         }
-    }
-}
 
+        public void validateEducation(IWebDriver driver)
+        {
+            Thread.Sleep(3000);
+            IWebElement EducationOption = driver.FindElement(By.LinkText("Education"));
+            EducationOption.Click();
+
+            Thread.Sleep(3000);
+            IWebElement AddNewEducation = driver.FindElement(By.XPath("//thead/tr[1]/th[6]/div[1]"));
+            AddNewEducation.Click();
+            Thread.Sleep(3000);
+
+            IWebElement CollegeName = driver.FindElement(By.Name("instituteName"));
+            CollegeName.Click();
+
+            IWebElement CountryName = driver.FindElement(By.Name("country"));
+            CountryName.Click();
+
+            IWebElement TitleName = driver.FindElement(By.Name("title"));
+            TitleName.Click();
+            Thread.Sleep(3000);
+
+            IWebElement DegreeName = driver.FindElement(By.Name("degree"));
+            DegreeName.Click();
+            Thread.Sleep(3000);
+
+            IWebElement YearName = driver.FindElement(By.Name("yearOfGraduation"));
+            YearName.Click();
+            Thread.Sleep(3000);
+
+            IWebElement AddButton = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/input[1]"));
+            AddButton.Click();
+            Thread.Sleep(3000);
+
+        }
+
+        public String validatedEducation(IWebDriver driver)
+        {
+            IWebElement validatedEducation = driver.FindElement(By.Name("instituteName"));
+            return validatedEducation.Text;
+
+        }
+    }
+
+}

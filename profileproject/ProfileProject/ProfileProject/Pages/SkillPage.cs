@@ -79,7 +79,7 @@ namespace ProfileProject.Pages
             //Click on update button
             IWebElement UpdateButton = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/span[1]/input[1]"));
             UpdateButton.Click();
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
 
         }
         public String editedSkill(IWebDriver driver)
@@ -97,6 +97,7 @@ namespace ProfileProject.Pages
 
         public void DeleteSkills(IWebDriver driver)
         {
+            Thread.Sleep(3000);
             IWebElement SkillOption = driver.FindElement(By.LinkText("Skills"));
             SkillOption.Click();
             Thread.Sleep(3000);
@@ -108,9 +109,42 @@ namespace ProfileProject.Pages
         }
         public String deletedSkill(IWebDriver driver)
         {
-            IWebElement deletedSkill = driver.FindElement(By.XPath("//td[contains(text(),'Technical')]"));
+            IWebElement deletedSkill = driver.FindElement(By.XPath("//tbody/tr/td[1]"));
             return deletedSkill.Text;
+        }
+
+        public void validateSkills(IWebDriver driver)
+        {
+            Thread.Sleep(3000);
+            IWebElement SkillOption = driver.FindElement(By.LinkText("Skills"));
+            SkillOption.Click();
+
+            Thread.Sleep(3000);
+            IWebElement AddNewSkill = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[3]/div[1]"));
+            AddNewSkill.Click();
+            Thread.Sleep(3000);
+
+            IWebElement SkillName = driver.FindElement(By.Name("name"));
+            SkillName.Click();
+            Thread.Sleep(3000);
+
+            IWebElement SkillButton = driver.FindElement(By.Name("level"));
+            SkillButton.Click();
+            Thread.Sleep(3000);
+
+            IWebElement AddButton = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/div[1]/span[1]/input[1]"));
+            AddButton.Click();
+            Thread.Sleep(3000);
+
 
         }
+
+        public String validatedSkills(IWebDriver driver)
+    {
+        IWebElement validatedSkills = driver.FindElement(By.Name("name"));
+        return validatedSkills.Text;
+
     }
+}
+
 }

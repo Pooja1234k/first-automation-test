@@ -42,7 +42,7 @@ namespace ProfileProject.Pages
 
 				IWebElement LoginButton = driver.FindElement(By.XPath("//button[contains(text(),'Login')]"));
 				LoginButton.Click();
-				Thread.Sleep(2000);
+				Thread.Sleep(3000);
 			}
 			catch(Exception ex)
             {

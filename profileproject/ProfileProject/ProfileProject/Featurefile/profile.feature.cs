@@ -75,14 +75,14 @@ namespace ProfileProject.Featurefile
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1.Confirmation of login with valid user name and password")]
+        [NUnit.Framework.DescriptionAttribute("01.Confirmation of login with valid user name and password")]
         [NUnit.Framework.CategoryAttribute("SignIn")]
-        public void _1_ConfirmationOfLoginWithValidUserNameAndPassword()
+        public void _01_ConfirmationOfLoginWithValidUserNameAndPassword()
         {
             string[] tagsOfScenario = new string[] {
                     "SignIn"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1.Confirmation of login with valid user name and password", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01.Confirmation of login with valid user name and password", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -104,10 +104,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("2.Create new languages record with valid details")]
+        [NUnit.Framework.DescriptionAttribute("02.Create new languages record with valid details")]
         [NUnit.Framework.CategoryAttribute("AddLanguage")]
         [NUnit.Framework.TestCaseAttribute("Hindi", "Fluent", null)]
-        public void _2_CreateNewLanguagesRecordWithValidDetails(string language, string level, string[] exampleTags)
+        public void _02_CreateNewLanguagesRecordWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "AddLanguage"};
@@ -119,7 +119,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2.Create new languages record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02.Create new languages record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -147,10 +147,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("3.Edit existing languages record with valid details")]
+        [NUnit.Framework.DescriptionAttribute("03.Edit existing languages record with valid details")]
         [NUnit.Framework.CategoryAttribute("EditLanguage")]
         [NUnit.Framework.TestCaseAttribute("English", "Basic", null)]
-        public void _3_EditExistingLanguagesRecordWithValidDetails(string language, string level, string[] exampleTags)
+        public void _03_EditExistingLanguagesRecordWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "EditLanguage"};
@@ -162,7 +162,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3.Edit existing languages record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03.Edit existing languages record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -190,12 +190,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("4.Delete existing language record")]
-        public void _4_DeleteExistingLanguageRecord()
+        [NUnit.Framework.DescriptionAttribute("04.Delete existing language record")]
+        public void _04_DeleteExistingLanguageRecord()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4.Delete existing language record", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.Delete existing language record", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 35
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -223,10 +223,37 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("5.Create new skills record with valid details")]
+        [NUnit.Framework.DescriptionAttribute("05 Verify validation error for language tab")]
+        public void _05VerifyValidationErrorForLanguageTab()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 Verify validation error for language tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 41
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 42
+ testRunner.Given("I left language field as blank", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 43
+ testRunner.Then("error message should be displayed for language page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("06.Create new skills record with valid details")]
         [NUnit.Framework.CategoryAttribute("AddSkill")]
         [NUnit.Framework.TestCaseAttribute("Communication", "Expert", null)]
-        public void _5_CreateNewSkillsRecordWithValidDetails(string skill, string level, string[] exampleTags)
+        public void _06_CreateNewSkillsRecordWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "AddSkill"};
@@ -238,8 +265,8 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5.Create new skills record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 42
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06.Create new skills record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 46
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -249,16 +276,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 43
+#line 47
  testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 44
+#line 48
  testRunner.When("I navigate to skills tab in profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 45
+#line 49
  testRunner.And(string.Format("I add new \'{0}\',\'{1}\'skills details", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 46
+#line 50
  testRunner.Then(string.Format("the skills details \'{0}\',\'{1}\'should be created successfully", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -266,16 +293,16 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("6.Edit existing skills record with valid details")]
+        [NUnit.Framework.DescriptionAttribute("07.Edit existing skills record with valid details")]
         [NUnit.Framework.TestCaseAttribute("Technical", "Beginner", null)]
-        public void _6_EditExistingSkillsRecordWithValidDetails(string skill, string level, string[] exampleTags)
+        public void _07_EditExistingSkillsRecordWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6.Edit existing skills record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 51
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07.Edit existing skills record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 55
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -285,16 +312,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 52
+#line 56
  testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 53
+#line 57
  testRunner.When("I navigate to edit button in skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 54
+#line 58
  testRunner.And(string.Format("I update existing \'{0}\',\'{1}\' skills details", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 55
+#line 59
  testRunner.Then(string.Format("the existing skills details \'{0}\',\'{1}\' should be updated successfully", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -302,13 +329,13 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("7.Delete existing skills record")]
-        public void _7_DeleteExistingSkillsRecord()
+        [NUnit.Framework.DescriptionAttribute("08.Delete existing skills record")]
+        public void _08_DeleteExistingSkillsRecord()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("7.Delete existing skills record", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 61
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08.Delete existing skills record", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 65
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -318,16 +345,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 62
+#line 66
  testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 63
+#line 67
  testRunner.When("I navigate to delete button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 64
+#line 68
  testRunner.And("I deleted existing skills details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 65
+#line 69
  testRunner.Then("the skills details should be deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -335,13 +362,13 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("8.create education record with valid details")]
-        public void _8_CreateEducationRecordWithValidDetails()
+        [NUnit.Framework.DescriptionAttribute("09. Verify validation error for Skills tab")]
+        public void _09_VerifyValidationErrorForSkillsTab()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8.create education record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 68
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09. Verify validation error for Skills tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 71
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -351,34 +378,25 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 69
- testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 70
- testRunner.When("I navigate to education tab in profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 71
- testRunner.And("I add new  education details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 72
- testRunner.Then("The Education details should be created successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I left skills field as blank", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 73
+ testRunner.Then("error message should be displayed for skills page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("9.Edit existing Education record with valid details")]
-        [NUnit.Framework.TestCaseAttribute("AUT", "DilpomaIT", null)]
-        public void _9_EditExistingEducationRecordWithValidDetails(string college, string degree, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("10.create education record with valid details")]
+        public void _10_CreateEducationRecordWithValidDetails()
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("College", college);
-            argumentsOfScenario.Add("Degree", degree);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("9.Edit existing Education record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10.create education record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 76
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -391,26 +409,29 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 78
- testRunner.When("I navigate to edit button in education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I navigate to education tab in profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 79
- testRunner.And(string.Format("I update existing \'{0}\',\'{1}\' education details", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I add new  education details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 80
- testRunner.Then(string.Format("the \'{0}\',\'{1}\' education details should be updated successfully", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The Education details should be created successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("10.Delete existing Education record")]
-        public void _10_DeleteExistingEducationRecord()
+        [NUnit.Framework.DescriptionAttribute("11.Edit existing Education record with valid details")]
+        [NUnit.Framework.TestCaseAttribute("AUT", "DilpomaIT", null)]
+        public void _11_EditExistingEducationRecordWithValidDetails(string college, string degree, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10.Delete existing Education record", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 86
+            argumentsOfScenario.Add("College", college);
+            argumentsOfScenario.Add("Degree", degree);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11.Edit existing Education record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 84
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -420,17 +441,77 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 87
+#line 85
  testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
+#line 86
+ testRunner.When("I navigate to edit button in education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 87
+ testRunner.And(string.Format("I update existing \'{0}\',\'{1}\' education details", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 88
+ testRunner.Then(string.Format("the \'{0}\',\'{1}\' education details should be updated successfully", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("12.Delete existing Education record")]
+        public void _12_DeleteExistingEducationRecord()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("12.Delete existing Education record", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 94
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 95
+ testRunner.Given("I logged into website successsfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 96
  testRunner.When("I navigate to delete button in Education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 89
+#line 97
  testRunner.And("I deleted existing education details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 90
+#line 98
  testRunner.Then("the education details should be deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("13. Verify validation error for education tab")]
+        public void _13_VerifyValidationErrorForEducationTab()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("13. Verify validation error for education tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 100
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 101
+ testRunner.Given("I left education field as blank", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 102
+ testRunner.Then("error message should be displayed for education page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

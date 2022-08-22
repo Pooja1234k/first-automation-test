@@ -16,10 +16,9 @@ namespace ProfileProject.pages
 
             // Click on Add a new languages
             Thread.Sleep(3000);
-            IWebElement AddNewOption = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[3]/div[1]"));
-            AddNewOption.Click();
+            IWebElement AddNewLanguage = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[3]/div[1]"));
+            AddNewLanguage.Click();
             Thread.Sleep(3000);
-
 
             // Enter new valid languages
 
@@ -119,6 +118,38 @@ namespace ProfileProject.pages
         {
             IWebElement deletedLanguage = driver.FindElement(By.XPath("//tbody/tr/td[1]"));
             return deletedLanguage.Text;
+
+        }
+
+        public void validateLanguages(IWebDriver driver)
+        {
+            Thread.Sleep(3000);
+            IWebElement LanguageOption = driver.FindElement(By.LinkText("Languages"));
+            LanguageOption.Click();
+
+            Thread.Sleep(3000);
+            IWebElement AddNewLanguage = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[3]/div[1]"));
+            AddNewLanguage.Click();
+            Thread.Sleep(3000);
+
+            IWebElement LanguageName = driver.FindElement(By.Name("name"));
+            LanguageName.Click();
+
+            IWebElement LevelOption = driver.FindElement(By.Name("level"));
+            LevelOption.Click();
+            Thread.Sleep(3000);
+
+            IWebElement AddButton = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/input[1]"));
+            AddButton.Click();
+            Thread.Sleep(3000);
+
+
+        }
+
+        public String validatedLanguage(IWebDriver driver)
+        {
+            IWebElement validatedLanguage = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"));
+            return validatedLanguage.Text;
 
         }
 

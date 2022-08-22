@@ -28,6 +28,8 @@ namespace ProfileProject.StepDefination
         public void WhenINavigateToProfilePage()
         {
             SignInNProfilepageObj.NavigateProfilePage(driver);
+
+            driver.Quit();
         }
 
         [Given(@"I logged into website successsfully")]
@@ -59,6 +61,7 @@ namespace ProfileProject.StepDefination
             Assert.That(newLanguage.Contains(p0), "Actual Language and Expected Language do not match");
             Assert.That(newLanguageLevel.Contains(p1), "Actual skill and Expected skill do not match");
 
+            driver.Quit();
         }
 
         [When(@"I navigate to  languages tab")]
@@ -86,7 +89,7 @@ namespace ProfileProject.StepDefination
             Assert.That(editedLanguage == p0, "Actual language and expected language do not match");
             Assert.That(editedLanguageLevel == p1, "Actual language level and expected language level do not match");
 
-
+            driver.Quit();
         }
 
         [When(@"I navigate to delete button in languages tab")]
@@ -110,8 +113,31 @@ namespace ProfileProject.StepDefination
 
             Assert.That(deletedLanguage != "English", "Actual language and expected language do not match");
 
+            driver.Quit();
         }
 
+        [Given(@"I left language field as blank")]
+        public void GivenILeftLanguageFieldAsBlank()
+        {
+            driver = new ChromeDriver();
+            SignInNProfilepageObj.SignInActions(driver);
+            SignInNProfilepageObj.NavigateProfilePage(driver);
+            LanguagePageObj.validateLanguages(driver);
+        }
+
+        [Then(@"error message should be displayed for language page")]
+        public void ThenErrorMessageShouldBeDisplayedForLanguagePage()
+        {
+            string validatedLanguage = LanguagePageObj.validatedLanguage(driver);
+
+            Assert.That(validatedLanguage != "Empty","Actual language can not be null");
+
+            driver.Quit();
+
+
+        }
+
+        
         [When(@"I navigate to skills tab in profile page")]
         public void WhenINavigateToSkillsTabInProfilePage()
         {
@@ -135,6 +161,7 @@ namespace ProfileProject.StepDefination
             Assert.That(newSkill.Contains(p0), "Actual Skill and Expected Skill do not match");
             Assert.That(newSkillLevel.Contains(p1), "Actual skill level and Expected skill level do not match");
 
+            driver.Quit();
         }
         [When(@"I navigate to edit button in skills tab")]
         public void WhenINavigateToEditButtonInSkillsTab()
@@ -157,6 +184,7 @@ namespace ProfileProject.StepDefination
 
             Assert.That(editedSkill == p0, "Actual Skill and expected Skill do not match");
             Assert.That(editedSkillLevel == p1, "Actual Skill level and expected Skill level do not match");
+            driver.Quit();
         }
 
         [When(@"I navigate to delete button")]
@@ -177,7 +205,31 @@ namespace ProfileProject.StepDefination
             string deletedSkills = SkillPageObj.deletedSkill(driver);
 
             Assert.That(deletedSkills != "Technical", "Actual skill is  not deleted ");
-        }        
+
+            driver.Quit();
+        }
+
+
+
+        [Given(@"I left skills field as blank")]
+        public void GivenILeftSkillsFieldAsBlank()
+        {
+            driver = new ChromeDriver();
+            SignInNProfilepageObj.SignInActions(driver);
+            SignInNProfilepageObj.NavigateProfilePage(driver);
+            SkillPageObj.validateSkills(driver);
+        }
+
+        [Then(@"error message should be displayed for skills page")]
+        public void ThenErrorMessageShouldBeDisplayedForSkillsPage()
+        {
+            string validatedSkills = SkillPageObj.validatedSkills(driver);
+
+            Assert.That(validatedSkills != "Empty", "Actual Skill can not be null");
+
+            driver.Quit();
+
+        }
 
         [When(@"I navigate to education tab in profile page")]
         public void WhenINavigateToEducationTabInProfilePage()
@@ -233,10 +285,9 @@ namespace ProfileProject.StepDefination
             string editedCollege = EducationPageObj.editedCollege(driver);
             string editedDegree = EducationPageObj.editedDegree(driver);
 
-
-            Assert.That(editedCollege == p0, "Actual College and expected College do not match");
-            Assert.That(editedDegree == p1, "Actual Degree and expected Degree do not match");
-
+            Assert.That(editedCollege.Contains(p0) ,"Actual College and expected College do not match");
+            Assert.That(editedDegree.Contains(p1), "Actual Degree and expected Degree do not match");
+            driver.Quit();
 
         }
 
@@ -259,10 +310,29 @@ namespace ProfileProject.StepDefination
             string deletedEducation = EducationPageObj.deletedEducation(driver);
 
             Assert.That(deletedEducation != "AUT", "Actual college is  not deleted ");
-
+            driver.Quit();
         }
 
 
+
+        [Given(@"I left education field as blank")]
+        public void GivenILeftEducationFieldAsBlank()
+        {
+            driver = new ChromeDriver();
+            SignInNProfilepageObj.SignInActions(driver);
+            SignInNProfilepageObj.NavigateProfilePage(driver);
+            EducationPageObj.validateEducation(driver);
+        }
+
+        [Then(@"error message should be displayed for education page")]
+        public void ThenErrorMessageShouldBeDisplayedForEducationPage()
+        {
+            string validatedEducation = EducationPageObj.validatedEducation(driver);
+
+            Assert.That(validatedEducation != "Empty", "Actual Education can not be null");
+
+            driver.Quit();
+        }
 
     }
 
