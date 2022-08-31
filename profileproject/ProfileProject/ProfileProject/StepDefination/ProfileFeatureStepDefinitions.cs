@@ -234,23 +234,23 @@ namespace ProfileProject.StepDefination
         [When(@"I navigate to education tab in profile page")]
         public void WhenINavigateToEducationTabInProfilePage()
         {
-            //SignInNProfilepageObj.NavigateProfilePage(driver);
+            //SignInNProfilepageObj.NavigateProfilePage();
 
         }
         [When(@"I add new  education details")]
         public void WhenIAddNewEducationDetails()
         {
-            EducationPageObj.AddEducation(driver);
+            EducationPageObj.AddEducation();
         }
 
         [Then(@"The Education details should be created successfully")]
         public void ThenTheEducationDetailsShouldBeCreatedSuccessfully()
         {
-            String newCollege = EducationPageObj.GetCollege(driver);
-            String newCountry = EducationPageObj.GetCountry(driver);
-            String newTitle = EducationPageObj.GetTitle(driver);
-            String newDegree = EducationPageObj.GetDegree(driver);
-            String newYear = EducationPageObj.GetYear(driver);
+            String newCollege = EducationPageObj.GetCollege();
+            String newCountry = EducationPageObj.GetCountry();
+            String newTitle = EducationPageObj.GetTitle();
+            String newDegree = EducationPageObj.GetDegree();
+            String newYear = EducationPageObj.GetYear();
 
 
 
@@ -261,7 +261,7 @@ namespace ProfileProject.StepDefination
             Assert.That(newDegree == "IT", "Actual degree and expected degree does not match");
             Assert.That(newYear == "2012", "Actual year and year price does not match");
 
-            driver.Quit();
+            //driver.Quit();
 
         }
 
@@ -275,19 +275,19 @@ namespace ProfileProject.StepDefination
         [When(@"I update existing '([^']*)','([^']*)' education details")]
         public void WhenIUpdateExistingEducationDetails(string p0, string p1)
         {
-            EducationPageObj.UpdateEducation(driver,p0,p1);
+            EducationPageObj.UpdateEducation(p0,p1);
 
         }
 
         [Then(@"the '([^']*)','([^']*)' education details should be updated successfully")]
         public void ThenTheEducationDetailsShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            string editedCollege = EducationPageObj.neweditedCollege(driver);
-            string editedDegree = EducationPageObj.neweditedDegree(driver);
+            string editedCollege = EducationPageObj.neweditedCollege();
+            string editedDegree = EducationPageObj.neweditedDegree();
 
             Assert.That(editedCollege.Contains(p0) ,"Actual College and expected College do not match");
             Assert.That(editedDegree.Contains(p1), "Actual Degree and expected Degree do not match");
-            driver.Quit();
+           // driver.Quit();
 
         }
 
@@ -301,16 +301,16 @@ namespace ProfileProject.StepDefination
         [When(@"I deleted existing education details")]
         public void WhenIDeletedExistingEducationDetails()
         {
-            EducationPageObj.DeleteEducation(driver);
+            EducationPageObj.DeleteEducation();
         }
 
         [Then(@"the education details should be deleted successfully")]
         public void ThenTheEducationDetailsShouldBeDeletedSuccessfully()
         {
-            string deletedEducation = EducationPageObj.newdeletedEducation(driver);
+            string deletedEducation = EducationPageObj.newdeletedEducation();
 
             Assert.That(deletedEducation != "AUT", "Actual college is  not deleted ");
-            driver.Quit();
+            //driver.Quit();
         }
 
 
@@ -321,17 +321,17 @@ namespace ProfileProject.StepDefination
            // driver = new ChromeDriver();
             //SignInNProfilepageObj.SignInActions(driver);
             //SignInNProfilepageObj.NavigateProfilePage(driver);
-            EducationPageObj.validateEducation(driver);
+            EducationPageObj.validateEducation();
         }
 
         [Then(@"error message should be displayed for education page")]
         public void ThenErrorMessageShouldBeDisplayedForEducationPage()
         {
-            string validatedEducation = EducationPageObj.newvalidatedEducation(driver);
+            string validatedEducation = EducationPageObj.newvalidatedEducation();
 
             Assert.That(validatedEducation != "Empty", "Actual Education can not be null");
 
-            driver.Quit();
+            //driver.Quit();
         }
 
     }
