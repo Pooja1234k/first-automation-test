@@ -2,13 +2,25 @@
 
 using NUnit.Framework;
 using OpenQA.Selenium;
+using ProfileProject.Utilities;
 
 namespace ProfileProject.Pages
 {
-    public class SignInNProfilePage
-    {
+    public class SignInNProfilePage : CommonDriver
 
-		public void SignInActions(IWebDriver driver)
+    {
+		IWebElement SignInButton => driver.FindElement(By.LinkText("Sign In"));
+
+		IWebElement EmailTextbox => driver.FindElement(By.Name("email"));
+
+		IWebElement passwordTextBox => driver.FindElement(By.Name("password"));
+
+		IWebElement LoginButton => driver.FindElement(By.XPath("//button[contains(text(),'Login')]"));
+
+		IWebElement Profilepage => driver.FindElement(By.LinkText("Profile"));
+
+
+		public void SignInActions()
 		{
 
 			driver.Manage().Window.Maximize();
@@ -22,25 +34,25 @@ namespace ProfileProject.Pages
 
 				// identify SignIn button
 
-				IWebElement SignInButton = driver.FindElement(By.LinkText("Sign In"));
+				
 				SignInButton.Click();
 				Thread.Sleep(2000);
 
 				// identify Email textbox and enter valid Email
 
-				IWebElement EmailTextbox = driver.FindElement(By.XPath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"));
+				
 				EmailTextbox.SendKeys("poojakaushal18@gmail.com");
 				Thread.Sleep(2000);
 
 				// identify password textbox and enter valid password
 
-				IWebElement passwordTextBox = driver.FindElement(By.XPath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]"));
+				
 				passwordTextBox.SendKeys("karankumar2189");
 				Thread.Sleep(2000);
 
 				// click on login button
 
-				IWebElement LoginButton = driver.FindElement(By.XPath("//button[contains(text(),'Login')]"));
+				
 				LoginButton.Click();
 				Thread.Sleep(3000);
 			}
@@ -51,9 +63,9 @@ namespace ProfileProject.Pages
 
 		}
 
-		public void NavigateProfilePage(IWebDriver driver)
+		public void NavigateProfilePage()
         {
-			IWebElement Profilepage = driver.FindElement(By.LinkText("Profile"));
+			
 			Profilepage.Click();
 			Thread.Sleep(5000);
 		}

@@ -19,43 +19,43 @@ namespace ProfileProject.StepDefination
         [Given(@"I logged into user account with valid username and password")]
         public void GivenILoggedIntoUserAccountWithValidUsernameAndPassword()
         {
-            driver = new ChromeDriver();
-            SignInNProfilepageObj.SignInActions(driver);
+           // driver = new ChromeDriver();
+            //SignInNProfilepageObj.SignInActions();
 
         }
 
         [When(@"I navigate to profile page")]
         public void WhenINavigateToProfilePage()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+            //SignInNProfilepageObj.NavigateProfilePage();
 
-            driver.Quit();
+           // driver.Quit();
         }
 
         [Given(@"I logged into website successsfully")]
         public void GivenILoggedIntoWebsiteSuccesssfully()
         {
-            driver = new ChromeDriver();
-            SignInNProfilepageObj.SignInActions(driver);
+           // driver = new ChromeDriver();
+            //SignInNProfilepageObj.SignInActions();
         }
 
         [When(@"I navigate to  languages tab in profile page")]
         public void WhenINavigateToLanguagesTabInProfilePage()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+            //SignInNProfilepageObj.NavigateProfilePage();
         }
 
         [When(@"I add new '([^']*)','([^']*)'languages details")]
         public void WhenIAddNewLanguagesDetails(string p0, string p1)
         {
-            LanguagePageObj.AddNewLanguages(driver, p0, p1);
+            LanguagePageObj.AddNewLanguages( p0, p1);
         }
 
         [Then(@"the languages details '([^']*)','([^']*)'should be created successfully")]
         public void ThenTheLanguagesDetailsShouldBeCreatedSuccessfully(string p0, string p1)
         {
-            String newLanguage = LanguagePageObj.GetLanguage(driver);
-            String newLanguageLevel = LanguagePageObj.GetLanguageLevel(driver);
+            String newLanguage = LanguagePageObj.GetLanguage();
+            String newLanguageLevel = LanguagePageObj.GetLanguageLevel();
 
 
             Assert.That(newLanguage.Contains(p0), "Actual Language and Expected Language do not match");
@@ -67,14 +67,14 @@ namespace ProfileProject.StepDefination
         [When(@"I navigate to  languages tab")]
         public void WhenINavigateToLanguagesTab()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+           // SignInNProfilepageObj.NavigateProfilePage();
         }
 
 
         [When(@"I update existing '([^']*)','([^']*)' languages details")]
         public void WhenIUpdateExistingLanguagesDetails(string p0, string p1)
         {
-            LanguagePageObj.UpdateLanguages(driver, p0, p1);
+            LanguagePageObj.UpdateLanguages( p0, p1);
 
 
         }
@@ -82,57 +82,57 @@ namespace ProfileProject.StepDefination
         [Then(@"the existing languages details'([^']*)','([^']*)' should be updated successfully")]
         public void ThenTheExistingLanguagesDetailsShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            string editedLanguage = LanguagePageObj.editedLanguage(driver);
-            string editedLanguageLevel = LanguagePageObj.editedLanguageLevel(driver);
+            string editedLanguage = LanguagePageObj.neweditedLanguage();
+            string editedLanguageLevel = LanguagePageObj.neweditedLanguageLevel();
 
 
             Assert.That(editedLanguage == p0, "Actual language and expected language do not match");
             Assert.That(editedLanguageLevel == p1, "Actual language level and expected language level do not match");
 
-            driver.Quit();
+          //  driver.Quit();
         }
 
         [When(@"I navigate to delete button in languages tab")]
         public void WhenINavigateToDeleteButtonInLanguagesTab()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+           // SignInNProfilepageObj.NavigateProfilePage();
 
         }
 
         [When(@"I deleted existing language details")]
         public void WhenIDeletedExistingLanguageDetails()
         {
-            LanguagePageObj.DeleteLanguages(driver);
+            LanguagePageObj.DeleteLanguages();
 
         }
 
         [Then(@"the language details should be deleted successfully")]
         public void ThenTheLanguageDetailsShouldBeDeletedSuccessfully()
         {
-            string deletedLanguage = LanguagePageObj.deletedLanguage(driver);
+            string deletedLanguage = LanguagePageObj.newdeletedLanguage();
 
             Assert.That(deletedLanguage != "English", "Actual language and expected language do not match");
 
-            driver.Quit();
+           // driver.Quit();
         }
 
         [Given(@"I left language field as blank")]
         public void GivenILeftLanguageFieldAsBlank()
         {
-            driver = new ChromeDriver();
-            SignInNProfilepageObj.SignInActions(driver);
-            SignInNProfilepageObj.NavigateProfilePage(driver);
-            LanguagePageObj.validateLanguages(driver);
+           // driver = new ChromeDriver();
+            //SignInNProfilepageObj.SignInActions();
+           // SignInNProfilepageObj.NavigateProfilePage();
+            LanguagePageObj.validateLanguages();
         }
 
         [Then(@"error message should be displayed for language page")]
         public void ThenErrorMessageShouldBeDisplayedForLanguagePage()
         {
-            string validatedLanguage = LanguagePageObj.validatedLanguage(driver);
+            string validatedLanguage = LanguagePageObj.newvalidatedLanguage();
 
             Assert.That(validatedLanguage != "Empty","Actual language can not be null");
 
-            driver.Quit();
+          //  driver.Quit();
 
 
         }
@@ -141,72 +141,72 @@ namespace ProfileProject.StepDefination
         [When(@"I navigate to skills tab in profile page")]
         public void WhenINavigateToSkillsTabInProfilePage()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+          //  SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [When(@"I add new '([^']*)','([^']*)'skills details")]
         public void WhenIAddNewSkillsDetails(string p0, string p1)
         {
 
-            SkillPageObj.AddNewSkills(driver, p0, p1);
+            SkillPageObj.AddNewSkills( p0, p1);
         }
 
         [Then(@"the skills details '([^']*)','([^']*)'should be created successfully")]
         public void ThenTheSkillsDetailsShouldBeCreatedSuccessfully(string p0, string p1)
         {
-            String newSkill = SkillPageObj.GetSkill(driver);
-            String newSkillLevel = SkillPageObj.GetSkillLevel(driver);
+            String newSkill = SkillPageObj.GetSkill();
+            String newSkillLevel = SkillPageObj.GetSkillLevel();
 
 
             Assert.That(newSkill.Contains(p0), "Actual Skill and Expected Skill do not match");
             Assert.That(newSkillLevel.Contains(p1), "Actual skill level and Expected skill level do not match");
 
-            driver.Quit();
+           // driver.Quit();
         }
         [When(@"I navigate to edit button in skills tab")]
         public void WhenINavigateToEditButtonInSkillsTab()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+            //SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [When(@"I update existing '([^']*)','([^']*)' skills details")]
         public void WhenIUpdateExistingSkillsDetails(string p0, string p1)
         {
-            SkillPageObj.UpdateSkills(driver, p0, p1);
+            SkillPageObj.UpdateSkills(p0, p1);
         }
 
         [Then(@"the existing skills details '([^']*)','([^']*)' should be updated successfully")]
         public void ThenTheExistingSkillsDetailsShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            string editedSkill = SkillPageObj.editedSkill(driver);
-            string editedSkillLevel = SkillPageObj.editedSkillLevel(driver);
+            string editedSkill = SkillPageObj.neweditedSkill();
+            string editedSkillLevel = SkillPageObj.neweditedSkillLevel();
 
 
             Assert.That(editedSkill == p0, "Actual Skill and expected Skill do not match");
             Assert.That(editedSkillLevel == p1, "Actual Skill level and expected Skill level do not match");
-            driver.Quit();
+            //driver.Quit();
         }
 
         [When(@"I navigate to delete button")]
         public void WhenINavigateToDeleteButton()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+           // SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [When(@"I deleted existing skills details")]
         public void WhenIDeletedExistingSkillsDetails()
         {
-            SkillPageObj.DeleteSkills(driver);
+            SkillPageObj.DeleteSkills();
         }
 
         [Then(@"the skills details should be deleted successfully")]
         public void ThenTheSkillsDetailsShouldBeDeletedSuccessfully()
         {
-            string deletedSkills = SkillPageObj.deletedSkill(driver);
+            string deletedSkills = SkillPageObj.newdeletedSkill();
 
             Assert.That(deletedSkills != "Technical", "Actual skill is  not deleted ");
 
-            driver.Quit();
+           // driver.Quit();
         }
 
 
@@ -214,27 +214,27 @@ namespace ProfileProject.StepDefination
         [Given(@"I left skills field as blank")]
         public void GivenILeftSkillsFieldAsBlank()
         {
-            driver = new ChromeDriver();
-            SignInNProfilepageObj.SignInActions(driver);
-            SignInNProfilepageObj.NavigateProfilePage(driver);
-            SkillPageObj.validateSkills(driver);
+           // driver = new ChromeDriver();
+            //SignInNProfilepageObj.SignInActions(driver);
+            //SignInNProfilepageObj.NavigateProfilePage(driver);
+           // SkillPageObj.validateSkills(driver);
         }
 
         [Then(@"error message should be displayed for skills page")]
         public void ThenErrorMessageShouldBeDisplayedForSkillsPage()
         {
-            string validatedSkills = SkillPageObj.validatedSkills(driver);
+            string validatedSkills = SkillPageObj.newvalidatedSkills();
 
             Assert.That(validatedSkills != "Empty", "Actual Skill can not be null");
 
-            driver.Quit();
+            //driver.Quit();
 
         }
 
         [When(@"I navigate to education tab in profile page")]
         public void WhenINavigateToEducationTabInProfilePage()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+            //SignInNProfilepageObj.NavigateProfilePage(driver);
 
         }
         [When(@"I add new  education details")]
@@ -269,7 +269,7 @@ namespace ProfileProject.StepDefination
         [When(@"I navigate to edit button in education tab")]
         public void WhenINavigateToEditButtonInEducationTab()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+            //SignInNProfilepageObj.NavigateProfilePage(driver);
         }
 
         [When(@"I update existing '([^']*)','([^']*)' education details")]
@@ -282,8 +282,8 @@ namespace ProfileProject.StepDefination
         [Then(@"the '([^']*)','([^']*)' education details should be updated successfully")]
         public void ThenTheEducationDetailsShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            string editedCollege = EducationPageObj.editedCollege(driver);
-            string editedDegree = EducationPageObj.editedDegree(driver);
+            string editedCollege = EducationPageObj.neweditedCollege(driver);
+            string editedDegree = EducationPageObj.neweditedDegree(driver);
 
             Assert.That(editedCollege.Contains(p0) ,"Actual College and expected College do not match");
             Assert.That(editedDegree.Contains(p1), "Actual Degree and expected Degree do not match");
@@ -294,7 +294,7 @@ namespace ProfileProject.StepDefination
         [When(@"I navigate to delete button in Education tab")]
         public void WhenINavigateToDeleteButtonInEducationTab()
         {
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+            //SignInNProfilepageObj.NavigateProfilePage(driver);
 
         }
 
@@ -307,7 +307,7 @@ namespace ProfileProject.StepDefination
         [Then(@"the education details should be deleted successfully")]
         public void ThenTheEducationDetailsShouldBeDeletedSuccessfully()
         {
-            string deletedEducation = EducationPageObj.deletedEducation(driver);
+            string deletedEducation = EducationPageObj.newdeletedEducation(driver);
 
             Assert.That(deletedEducation != "AUT", "Actual college is  not deleted ");
             driver.Quit();
@@ -318,16 +318,16 @@ namespace ProfileProject.StepDefination
         [Given(@"I left education field as blank")]
         public void GivenILeftEducationFieldAsBlank()
         {
-            driver = new ChromeDriver();
-            SignInNProfilepageObj.SignInActions(driver);
-            SignInNProfilepageObj.NavigateProfilePage(driver);
+           // driver = new ChromeDriver();
+            //SignInNProfilepageObj.SignInActions(driver);
+            //SignInNProfilepageObj.NavigateProfilePage(driver);
             EducationPageObj.validateEducation(driver);
         }
 
         [Then(@"error message should be displayed for education page")]
         public void ThenErrorMessageShouldBeDisplayedForEducationPage()
         {
-            string validatedEducation = EducationPageObj.validatedEducation(driver);
+            string validatedEducation = EducationPageObj.newvalidatedEducation(driver);
 
             Assert.That(validatedEducation != "Empty", "Actual Education can not be null");
 

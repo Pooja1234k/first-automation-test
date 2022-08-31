@@ -114,7 +114,7 @@ namespace ProfileProject.Pages
             Thread.Sleep(5000);
 
         }
-        public String editedCollege(IWebDriver driver)
+        public String neweditedCollege(IWebDriver driver)
         {
             IWebElement newCollege = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
             return newCollege.GetAttribute("outerText").ToString();
@@ -122,7 +122,7 @@ namespace ProfileProject.Pages
 
         }
 
-        public String editedDegree(IWebDriver driver)
+        public String neweditedDegree(IWebDriver driver)
         {
             IWebElement newDegree = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
             return newDegree.GetAttribute("outerText").ToString();
@@ -140,7 +140,7 @@ namespace ProfileProject.Pages
             Thread.Sleep(3000);
         }
 
-        public String deletedEducation(IWebDriver driver)
+        public String newdeletedEducation(IWebDriver driver)
         {
             IWebElement deletedEducation = driver.FindElement(By.XPath("//tbody/tr/td[1]"));
             return deletedEducation.Text;
@@ -182,7 +182,7 @@ namespace ProfileProject.Pages
 
         }
 
-        public String validatedEducation(IWebDriver driver)
+        public String newvalidatedEducation(IWebDriver driver)
         {
             IWebElement validatedEducation = driver.FindElement(By.Name("instituteName"));
             return validatedEducation.Text;
