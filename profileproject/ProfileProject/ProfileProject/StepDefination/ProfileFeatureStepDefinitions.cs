@@ -11,10 +11,20 @@ namespace ProfileProject.StepDefination
     [Binding]
     public class ProfileFeatureStepDefinitions : CommonDriver
     {
-        SignInNProfilePage SignInNProfilepageObj = new SignInNProfilePage();
-        LanguagePage LanguagePageObj = new LanguagePage();
-        SkillPage SkillPageObj = new SkillPage();
-        EducationPage EducationPageObj = new EducationPage();
+
+        SignInNProfilePage SignInNProfilepageObj;
+        LanguagePage LanguagePageObj;
+        SkillPage SkillPageObj;
+        EducationPage EducationPageObj;
+
+        public ProfileFeatureStepDefinitions()
+        {
+            SignInNProfilepageObj = new SignInNProfilePage();
+            LanguagePageObj = new LanguagePage();
+            SkillPageObj = new SkillPage();
+            EducationPageObj = new EducationPage();
+        }
+
 
         [Given(@"I logged into user account with valid username and password")]
         public void GivenILoggedIntoUserAccountWithValidUsernameAndPassword()
