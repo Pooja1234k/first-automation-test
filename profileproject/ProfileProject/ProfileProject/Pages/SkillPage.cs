@@ -25,9 +25,9 @@ namespace ProfileProject.Pages
 
         IWebElement UpdateButton => driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/span[1]/input[1]"));
 
-        //IWebElement editedSkill => driver.FindElement(By.XPath("//tbody/tr/td[1]"));
+        IWebElement edited1Skill => driver.FindElement(By.XPath("//tbody/tr/td[1]"));
 
-        //IWebElement editedSkillLevel => driver.FindElement(By.XPath("//tbody/tr/td[2]"));
+        IWebElement edited1SkillLevel => driver.FindElement(By.XPath("//tbody/tr/td[2]"));
         // IWebElement SkillOption => driver.FindElement(By.LinkText("Skills"));
         IWebElement AddNewSkill => driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[3]/div[1]"));
         IWebElement deleteButton => driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/span[2]/i[1]"));
@@ -118,14 +118,14 @@ namespace ProfileProject.Pages
         public String neweditedSkill()
         {
             
-            return editedSkill.Text;
+            return edited1Skill.Text;
 
         }
 
         public String neweditedSkillLevel()
         {
            
-            return editedSkillLevel.Text;
+            return edited1SkillLevel.Text;
         }
 
         public void DeleteSkills()

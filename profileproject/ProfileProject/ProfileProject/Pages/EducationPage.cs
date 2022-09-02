@@ -34,8 +34,9 @@ namespace ProfileProject.Pages
 
         IWebElement UpdateButton => driver.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[3]/input[1]"));
 
-       // IWebElement newCollege => driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
+       IWebElement new1College => driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
 
+        IWebElement new1Degree => driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
         IWebElement deleteEducation => driver.FindElement(By.XPath("//tbody/tr[1]/td[6]/span[2]/i[1]"));
 
         IWebElement deletedEducation => driver.FindElement(By.XPath("//tbody/tr/td[1]"));
@@ -162,15 +163,15 @@ namespace ProfileProject.Pages
         public String neweditedCollege()
         {
             
-            return newCollege.GetAttribute("outerText").ToString();
+            return new1College.GetAttribute("outerText").ToString();
 
 
         }
 
         public String neweditedDegree()
         {
-           // IWebElement newDegree = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]"));
-            return newDegree.GetAttribute("outerText").ToString();
+          
+            return new1Degree.GetAttribute("outerText").ToString();
 
         }
 
